@@ -12,8 +12,16 @@ base-service:
     serviceAccount:
       create: true
 
-    nodeSelector:
-      cloud.google.com/gke-nodepool: medium-pool
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      hosts:
+        - host: test.krystal-holdings.com
+          paths:
+            - path: /
+              pathType: Prefix
 
     resources:
       limits:
