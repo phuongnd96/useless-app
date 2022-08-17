@@ -1,0 +1,33 @@
+base-service:
+  nameOverride: ping-demo
+  fullnameOverride: ping-demo
+
+  server:
+    revisionHistoryLimit: 1
+
+    image:
+      repository: asia.gcr.io/krystal-operation/krystal/ping-demo
+      tag: master-000000000
+
+    serviceAccount:
+      create: true
+
+    nodeSelector:
+      cloud.google.com/gke-nodepool: medium-pool
+
+    resources:
+      limits:
+        cpu: 100m
+        memory: 200Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+
+    autoscaling:
+      enabled: false
+
+    service:
+      port: 8080
+
+  redis:
+    enabled: false
