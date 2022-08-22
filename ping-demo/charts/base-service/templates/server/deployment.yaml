@@ -10,7 +10,7 @@ metadata:
       {{- toYaml . | nindent 8 }}
     {{- end }}
   annotations:
-    checksum/config: {{ printf .Values.configMaps | sha256sum  }}
+    checksum/config: {{ .Values.server.configMaps.data | quote | sha256sum  }}
 spec:
   {{- if not .Values.server.autoscaling.enabled }}
   replicas: {{ .Values.server.replicas }}
