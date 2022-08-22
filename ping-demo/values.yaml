@@ -6,8 +6,21 @@ base-service:
     revisionHistoryLimit: 1
 
     image:
-      repository: asia.gcr.io/krystal-operation/krystal/ping-demo
-      tag: master-000000000
+      repository: asia.gcr.io/krystal-operation/krystal/krystal-ping-demo
+      tag: 39568aa32d64
+
+    configMaps:
+      create: true
+      data:
+        - name: hehe.yaml
+          value: |-
+            hehe: hihi
+            foo: bar
+
+    volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+        readOnly: true
 
     serviceAccount:
       create: true
