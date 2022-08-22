@@ -1,4 +1,4 @@
-base-service:
+# base-service:
   nameOverride: ping-demo
   fullnameOverride: ping-demo
 

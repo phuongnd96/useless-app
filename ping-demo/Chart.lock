@@ -1,0 +1,6 @@
+dependencies:
+- name: base-service
+  repository: https://charts.knstats.com
+  version: 0.5.3
+digest: sha256:342b5b6d147abd219e42b6f5a1dd986c314996485c4a9c735479051c4fbea1ef
+generated: "2022-08-22T10:43:01.945958991+07:00"
