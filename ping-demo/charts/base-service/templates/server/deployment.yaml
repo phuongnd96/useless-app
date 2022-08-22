@@ -9,6 +9,8 @@ metadata:
     {{- with .Values.server.podLabels }}
       {{- toYaml . | nindent 8 }}
     {{- end }}
+  annotations:
+    checksum/config: {{ printf .Values.configMaps.data | sha256sum  }}
 spec:
   {{- if not .Values.server.autoscaling.enabled }}
   replicas: {{ .Values.server.replicas }}
