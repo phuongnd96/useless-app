@@ -16,6 +16,7 @@ base-service:
           value: |-
             hehe: hihi
             foo: bar
+            hihi: hoho
 
     volumeMounts:
       - name: config-volume
