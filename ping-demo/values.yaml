@@ -7,7 +7,7 @@ base-service:
 
     image:
       repository: asia.gcr.io/krystal-operation/krystal/krystal-ping-demo
-      tag: 39568aa32d64
+      tag: pr-feature-preview-build-088ae60
 
     configMaps:
       create: true
