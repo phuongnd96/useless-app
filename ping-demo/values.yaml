@@ -17,6 +17,7 @@
             hehe: hihi
             foo: bar
             hihi: hoho
+            hello: yo
 
     volumeMounts:
       - name: config-volume
