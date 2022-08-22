@@ -1,0 +1,60 @@
+base-service:
+  nameOverride: ping-demo
+  fullnameOverride: ping-demo
+
+  server:
+    revisionHistoryLimit: 1
+
+    image:
+      repository: asia.gcr.io/krystal-operation/krystal/krystal-ping-demo
+      tag: pr-feature-preview-build-088ae60
+
+    configMaps:
+      create: true
+      data:
+        - name: hehe.yaml
+          value: |-
+            hehe: hihi
+            foo: bar
+            hihi: hoho
+
+    volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+        readOnly: true
+
+    volumes:
+      - name: config-volume
+        configMap:
+            name: ping-demo
+
+    serviceAccount:
+      create: true
+
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      hosts:
+        - host: test.krystal-holdings.com
+          paths:
+            - path: /
+              pathType: Prefix
+
+    resources:
+      limits:
+        cpu: 100m
+        memory: 200Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+
+    autoscaling:
+      enabled: false
+
+    service:
+      port: 8080
+
+  redis:
+    enabled: false
