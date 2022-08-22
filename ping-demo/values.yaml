@@ -22,6 +22,11 @@ base-service:
         mountPath: /etc/config
         readOnly: true
 
+    volumes:
+      - name: config-volume
+        configMap:
+            name: ping-demo
+
     serviceAccount:
       create: true
 
