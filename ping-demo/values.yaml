@@ -6,7 +6,7 @@ base-service:
     revisionHistoryLimit: 1
 
     image:
-      repository: asia.gcr.io/krystal-operation/krystal/ping-demo
+      repository: asia.gcr.io/krystal-operation/krystal/krystal-ping-demo
       tag: master-000000000
 
     serviceAccount:
