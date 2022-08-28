@@ -1,0 +1,14 @@
+helm:
+  parameters:
+  - name: base-service.server.ingress.enabled
+    value: "true"
+    forcestring: false
+  - name: base-service.server.ingress.hosts[0].host
+    value: demo-ping-demo-7.krystal-holdings.com
+    forcestring: false
+  - name: base-service.server.image.name
+    value: asia.gcr.io/krystal-operation/krystal/krystal-ping-demo
+    forcestring: true
+  - name: base-service.server.image.tag
+    value: pr-feature-preview-build-9dc1913
+    forcestring: true
